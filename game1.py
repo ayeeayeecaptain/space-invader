@@ -7,14 +7,12 @@ import sys
 pyg.init()
 
 def resource_path(relative_path):
-    """Get absolute path to resource, works for dev and for PyInstaller"""
     try:
-        base_path = sys._MEIPASS  # PyInstaller creates a temp folder with this attribute
+        base_path = sys._MEIPASS  
     except AttributeError:
         base_path = os.path.abspath(".")
     return os.path.join(base_path, relative_path)
 
-# Load images using resource_path
 bg = pyg.image.load(resource_path('b.jpeg'))
 bg2 = pyg.image.load(resource_path('5466730.jpg'))
 screen = pyg.display.set_mode((800,600))
@@ -127,3 +125,4 @@ while running:
         screen.blit(final, (280, 320))
 
     pyg.display.update()
+
